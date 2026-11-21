@@ -1,0 +1,75 @@
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char str[1000];
+    int vowels = 0, consonants = 0;
+    int digits = 0, spaces = 0;
+
+    fgets(str, sizeof(str), stdin);
+
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        char ch = tolower((unsigned char)str[i]);
+
+        if (ch == 'a' || ch == 'e' || ch == 'i' ||
+            ch == 'o' || ch == 'u')
+        {
+            vowels++;
+        }
+        else if (ch >= 'a' && ch <= 'z')
+        {
+            consonants++;
+        }
+        else if (isdigit((unsigned char)ch))
+        {
+            digits++;
+        }
+        else if (ch == ' ')
+        {
+            spaces++;
+        }
+    }
+
+    printf("%d %d %d %d", vowels, consonants, digits, spaces);
+
+    return 0;
+}
+
+
+
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    char str[1000];
+    int count = 1;
+
+    scanf("%999s", str);
+
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == str[i + 1])
+        {
+            count++;
+        }
+        else
+        {
+            printf("%c%d", str[i], count);
+            count = 1;
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+

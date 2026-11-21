@@ -1,0 +1,207 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int n, target;
+    int a[1000];
+    int count = 0;
+
+    scanf("%d %d", &n, &target);
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] + a[j] == target)
+            {
+                count++;
+            }
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int gcd(int a, int b)
+{
+    while (b != 0)
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+int main()
+{
+    int n, m, count = 0;
+
+    scanf("%d %d", &n, &m);
+
+    if (n <= 0 || m < 1)
+        return 0;
+
+    for (int i = 1; i <= m; i++)
+    {
+        if (gcd(i, n) == 1)
+        {
+            count++;
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int N, found = 0;
+
+    scanf("%d", &N);
+
+    for (int a = 1; a <= N; a++)
+    {
+        for (int b = a + 1; b <= N; b++)
+        {
+            for (int c = b + 1; c <= N; c++)
+            {
+                if (a * a + b * b == c * c)
+                {
+                    printf("%d %d %d\n", a, b, c);
+                    found = 1;
+                }
+            }
+        }
+    }
+
+    if (found == 0)
+    {
+        printf("None");
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int digitSum(int n)
+{
+    int sum = 0;
+
+    while (n > 0)
+    {
+        sum += n % 10;
+        n /= 10;
+    }
+
+    return sum;
+}
+
+int main()
+{
+    int n, a[1000];
+    int count = 0;
+
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (digitSum(a[i]) == digitSum(a[j]))
+            {
+                count++;
+            }
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main()
+{
+    int n, a[1000];
+    int minDiff = INT_MAX;
+
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            int diff = abs(a[i] - a[j]);
+
+            if (diff < minDiff)
+            {
+                minDiff = diff;
+            }
+        }
+    }
+
+    printf("%d", minDiff);
+
+    return 0;
+}
+
+
+
+
+
+
+
